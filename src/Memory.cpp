@@ -39,7 +39,7 @@ void Heap::SavePointer(const void * val)
 void Heap::AssignToHeap(ASTValue * val)
 {
     if ((uint)m_current + 1000 > m_data.capacity() )
-        m_data.resize(m_data.capacity() + 10000);
+        m_data.resize(m_data.capacity() + 100000);
 
     AST::Type type = val->Type();
     m_data[m_current] = static_cast<unsigned char>(type);
@@ -115,7 +115,7 @@ void Heap::AssignToHeapFun(ASTFunction * val)
     uint num = val->m_json.size();
 
     if ((uint)m_current + num + 1000 > m_data.capacity() )
-        m_data.resize(m_data.capacity() + 10000 + num);
+        m_data.resize(m_data.capacity() + 100000 + num);
 
     while (num != 0) 
     { 
